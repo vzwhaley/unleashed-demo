@@ -24,7 +24,7 @@ class ApiController extends AbstractController
     /**
      * CRUD method for creating/adding a new URL
      *
-     * @Route("/add-url", name="add_url, methods={"POST"})
+     * @Route("/add-url", name="add_url", methods={"POST"})
      *
      * @param Request $request
      * @return JsonResponse
@@ -63,7 +63,7 @@ class ApiController extends AbstractController
     /**
      * CRUD method for updating an existing URL
      *
-     * @Route("/url/{id}", name="update_url, methods={"PUT"})
+     * @Route("/url/{id}", name="update_url", methods={"PUT"})
      *
      * @param string $id
      * @return JsonResponse
@@ -78,7 +78,7 @@ class ApiController extends AbstractController
     /**
      * CRUD method for deleting an existing URL
      *
-     * @Route("/url/{id}", name="delete_url, methods={"DELETE"})
+     * @Route("/url/{id}", name="delete_url", methods={"DELETE"})
      */
     public function deleteUrl(Request $request): JsonResponse
     {
