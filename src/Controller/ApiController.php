@@ -29,7 +29,7 @@ class ApiController extends AbstractController
      * @param Request $request
      * @return JsonResponse
      */
-    public function add(Request $request): JsonResponse
+    public function addUrl(Request $request): JsonResponse
     {
         // TODO Add repository method for adding new URL
 
@@ -44,7 +44,7 @@ class ApiController extends AbstractController
      * @param string $id
      * @return JsonResponse
      */
-    public function get($id): JsonResponse
+    public function getUrl($id): JsonResponse
     {
         $url = $this->urlRepo->findOneBy(['id' => $id]);
 
@@ -68,7 +68,7 @@ class ApiController extends AbstractController
      * @param string $id
      * @return JsonResponse
      */
-    public function update($id): JsonResponse
+    public function updateUrl($id): JsonResponse
     {
         // TODO Add repository method for updating an existing URL
 
@@ -80,7 +80,7 @@ class ApiController extends AbstractController
      *
      * @Route("/url/{id}", name="delete_url, methods={"DELETE"})
      */
-    public function delete(Request $request): JsonResponse
+    public function deleteUrl(Request $request): JsonResponse
     {
         // TODO Add repository method for deleting an existing URL
 
