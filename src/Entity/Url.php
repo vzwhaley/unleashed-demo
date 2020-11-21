@@ -136,7 +136,7 @@ class Url
         return $this;
     }
 
-    public function getDeletedAt(): \DateTimeInterface
+    public function getDeletedAt(): ?\DateTimeInterface
     {
         return $this->deletedAt;
     }
