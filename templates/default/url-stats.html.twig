@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Unleashed Shortened URL Stats{% endblock %}
+{% block p %}{% endblock %}
+{% block h1 %}{% endblock %}
+
+{% block body %}
+    <section class="bg-white py-8">
+        <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+            <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">ALL URL STATS</h1>
+            <div class="w-full mb-4">
+                <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            </div>
+            <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink" style="text-align:center;">
+            {% if url_details is defined and url_details %}
+                {% for url in url_details %}
+                    <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden">
+                        <p class="w-full font-bold text-gray-600 text-xs md:text-4xl px-6">
+                            SHORTENED URL
+                        </p>
+                        <div class="w-full font-bold text-4xl text-gray-800 px-6">
+                            <a href="{{ path('load_url', {'shortenedUrl': url.token}) }}" target="_blank"
+                               class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
+                                {{ url.shortUrl }}
+                            </a>
+                        </div>
+                        <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                            &nbsp;
+                        </p>
+                        <p class="w-full font-bold text-gray-600 text-xs md:text-3xl px-6">
+                            REDIRECTS/PAGE VISITS
+                        </p>
+                        <div class="w-full font-bold text-3xl text-gray-800 px-6">
+                            {{ url.visits }}
+                        </div>
+                        <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                            &nbsp;
+                        </p>
+                        <p class="w-full font-bold text-gray-600 text-xs md:text-lg px-8">
+                            ORIGINAL URL
+                        </p>
+                        <div class="w-full font-bold text-xl text-gray-800 px-6">
+                            {{ url.url }}
+                        </div>
+                        {% if url.deletedAt is defined and url.deletedAt %}
+                            <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                                &nbsp;
+                            </p>
+                            <p class="w-full font-bold text-gray-600 text-xs md:text-lg px-8">
+                                DELETED STATUS
+                            </p>
+                            <div class="w-full font-bold text-xl text-red-800 px-6">
+                                This URL has been soft deleted.
+                            </div>
+                            <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                                &nbsp;
+                            </p>
+                        {% endif %}
+                    </div>
+                    <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                        &nbsp;
+                    </p>
+                    <div class="w-full mb-4">
+                        <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+                    </div>
+                    <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                        &nbsp;
+                    </p>
+                    {% endfor %}
+                {% else %}
+                <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink" style="text-align:center;">
+                    <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden">
+                        <p class="w-full font-bold text-gray-800 text-xs md:text-xl px-8">
+                            No URLs currently available!
+                        </p>
+                        <p class="w-full text-gray-800 text-xs md:text-xl px-6">
+                            &nbsp;
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+    </section>
+{% endblock %}
