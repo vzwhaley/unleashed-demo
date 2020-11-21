@@ -35,7 +35,7 @@ final class Version20201119024450 extends AbstractMigration
             COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE INDEX URL_INDEX1 ON unleashed.url (url)');
         $this->addSql('CREATE INDEX URL_INDEX2 ON unleashed.url (short_url)');
-        $this->addSql('CREATE INDEX URL_INDEX2 ON unleashed.url (token)');
+        $this->addSql('CREATE INDEX URL_INDEX3 ON unleashed.url (token)');
     }
 
     /**
